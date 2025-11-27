@@ -30,7 +30,7 @@ Visit **[EMCP Platform](https://sit-emcp.kaleido.guru)** now to start your MCP j
 
 ## Introduction
 
-This is an automatically generated MCP server using [FastMCP](https://fastmcp.wiki) for accessing the Zoopla API.
+This is an MCP server for accessing the Zoopla API.
 
 - **PyPI Package**: `bach-zoopla`
 - **Version**: 1.0.0
@@ -107,8 +107,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "zoopla": {
-      "command": "python",
-      "args": ["E:\path\to\zoopla\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-zoopla", "bach_zoopla"],
       "env": {
         "API_KEY": "your_api_key_here"
       }

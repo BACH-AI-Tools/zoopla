@@ -1,0 +1,1536 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Zoopla",
+    "version": "1.0.0",
+    "description": "RapidAPI: apidojo/zoopla"
+  },
+  "servers": [
+    {
+      "url": "https://zoopla.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/properties/v2/list": {
+      "get": {
+        "summary": "properties/v2/list",
+        "description": "List properties for sale or rent with options and filters",
+        "operationId": "properties/v2/list",
+        "parameters": [
+          {
+            "name": "locationValue",
+            "in": "query",
+            "required": true,
+            "description": "The value of geoLabel field returned in .../v2/auto-complete endpoint with listings as search_type. Or the value of name field returned in .../house-prices/v2/get-area (If you are searching by postal code). You must use EXACTLY the value returned by the endpoint. *'listing_id' OR 'area' parameter must be provided to get this endpoint working.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "locationIdentifier",
+            "in": "query",
+            "required": true,
+            "description": "The value of geoIdentifier field returned in .../v2/auto-complete endpoint with listings as search_type. Or the value of id field returned in ..../house-prices/v2/get-area endpoint (If you are searching by postal code). You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "One of the following residential|commercial",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "furnishedState",
+            "in": "query",
+            "required": false,
+            "description": "One of the following : Any|furnished|part_furnished|unfurnished",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "includeRented",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "includeRetirementHomes",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "includeSharedAccommodation",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "includeSharedOwnership",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "includeSold",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "isAuction",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "petsAllowed",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "billsIncluded",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "keywords",
+            "in": "query",
+            "required": false,
+            "description": "Any word or term, ex : garden,wooden floors",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "section",
+            "in": "query",
+            "required": false,
+            "description": "One of the following : for-sale|to-rent",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "bedsMax",
+            "in": "query",
+            "required": false,
+            "description": "Max number of bed rooms (1 - 10)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "bedsMin",
+            "in": "query",
+            "required": false,
+            "description": "Min number of bed rooms (1 - 10)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "priceMax",
+            "in": "query",
+            "required": false,
+            "description": "Maximum sale or rent price",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "priceMin",
+            "in": "query",
+            "required": false,
+            "description": "Minimum sale or rent price",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "description": "One of the following : newest_listings|highest_price|lowest_price|most_reduced",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "The page index for paging purpose",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "required": false,
+            "description": "The radius (miles) to look for properties (0.25 - 40)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "priceFrequency",
+            "in": "query",
+            "required": false,
+            "description": "One of the following per_month|per_year",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "newHomes",
+            "in": "query",
+            "required": false,
+            "description": "One of the following : only|exclude",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "added",
+            "in": "query",
+            "required": false,
+            "description": "Recently added. One of the following : 24_hours|3_days|7_days|14_days|30_days",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "propertySubType",
+            "in": "query",
+            "required": false,
+            "description": "Filter properties by category. Ignore OR one of the followings (Separated by comma for multiple options) : park_home,bungalow,farms_land,terraced,flats,semi_detached,detached",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "chainFree",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "reducedPriceOnly",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "description": "One of the followings : has_balcony_terrace|has_parking_garage|has_garden . Separated by comma for multiple options. Ex : has_balcony_terrace,has_parking_garage,...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "tenure",
+            "in": "query",
+            "required": false,
+            "description": "One of the followings : share_of_freehold|freehold|leasehold. Ex : freehold,leasehold,...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "smartTags",
+            "in": "query",
+            "required": false,
+            "description": "One of the followings : condition.needs_modernisation|architecture.period_property|type.cottage|style.modern|attributes.utility_room|attributes.basement|attributes.conservatory|attributes.home_office|attributes.bath|attributes.en_suite|attributes.patio|attributes.kitchen_island. Ex : condition.needs_modernisation,architecture.period_property,...",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/v2/estimate": {
+      "get": {
+        "summary": "house-prices/v2/estimate",
+        "description": "Returned list of estimated house prices",
+        "operationId": "house_prices/v2/estimate",
+        "parameters": [
+          {
+            "name": "geoIdentifier",
+            "in": "query",
+            "required": true,
+            "description": "The value of 'urlPath' field returned in .../house-prices/v2/auto-complete endpoint OR the value of 'id' field returned in .../house-prices/v2/get-area endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "The offset to ignore for paging purpose.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "first",
+            "in": "query",
+            "required": false,
+            "description": "The number of items per response",
+            "schema": {
+              "type": "string",
+              "default": "20",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agents/detail": {
+      "get": {
+        "summary": "agents/detail",
+        "description": "Get detailed information of an agent by id",
+        "operationId": "agents/detail",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "The value of id field returned in .../agents/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "55447",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agents/list": {
+      "get": {
+        "summary": "agents/list",
+        "description": "List agents with filters and options",
+        "operationId": "agents/list",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": true,
+            "description": "The value of geoIdentifier field returned in .../v2/auto-complete endpoint with listings as search_type. Or the value of id field returned in ..../house-prices/v2/get-area endpoint (If you are searching by postal code). You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "search_type",
+            "in": "query",
+            "required": false,
+            "description": "One of the followings : estate-agents|letting-agents|commercial-agents",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "company_name",
+            "in": "query",
+            "required": false,
+            "description": "Search by agent name. Either 'location' or 'company_name' is required. You can ignore 'location' parameter when passing value into 'company_name' parameter.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "agents_sort",
+            "in": "query",
+            "required": false,
+            "description": "One of the following : a_z|lowest_avg_price|highest_avg_price|shortest_avg_age|longest_avg_age",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "pn",
+            "in": "query",
+            "required": false,
+            "description": "The page index for paging purpose",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "required": false,
+            "description": "The radius (miles) to look for agents (0.25 - 40)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-area-stats": {
+      "get": {
+        "summary": "house-prices/get-area-stats (Deprecated)",
+        "description": "Get area stats",
+        "operationId": "house_prices/get_area_stats_(deprecated)",
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of property_id field returned in .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "27175510",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-historic-listings": {
+      "get": {
+        "summary": "house-prices/get-historic-listings (Deprecated)",
+        "description": "Get historic listings",
+        "operationId": "house_prices/get_historic_listings_(deprecated)",
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of property_id field returned in .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "27175510",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/v2/get-area": {
+      "get": {
+        "summary": "house-prices/v2/get-area",
+        "description": "Use along with .../house-prices/v2/auto-complete endpoint to get related geo id. For example, geo id of postal code.",
+        "operationId": "house_prices/v2/get_area",
+        "parameters": [
+          {
+            "name": "geoString",
+            "in": "query",
+            "required": true,
+            "description": "Postal code, city, district, ward, area, etc.... Use exact values returned in .../house-prices/v2/auto-complete endpoint for best result",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-running-costs": {
+      "get": {
+        "summary": "house-prices/get-running-costs (Deprecated)",
+        "description": "Get running costs",
+        "operationId": "house_prices/get_running_costs_(deprecated)",
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of property_id field returned in .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "27175510",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-market-activity": {
+      "get": {
+        "summary": "house-prices/get-market-activity (Deprecated)",
+        "description": "Get market activity in an area",
+        "operationId": "house_prices/get_market_activity_(deprecated)",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "The value of suggestions/identifier json object returned in .../auto-complete endpoint with properties as search_type. You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "required": true,
+            "description": "The value of suggestions/value json object returned in .../auto-complete endpoint with properties as search_type. You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-sales-history": {
+      "get": {
+        "summary": "house-prices/get-sales-history (Deprecated)",
+        "description": "Get sales history",
+        "operationId": "house_prices/get_sales_history_(deprecated)",
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of property_id field returned in .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "27175510",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/get-nearby": {
+      "get": {
+        "summary": "properties/get-nearby (Deprecated)",
+        "description": "Get nearest points of interest",
+        "operationId": "properties/get_nearby_(deprecated)",
+        "parameters": [
+          {
+            "name": "listing_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of listing_id field returned in .../properties/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "56354192",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/v2/detail": {
+      "get": {
+        "summary": "properties/v2/detail",
+        "description": "Get property detail",
+        "operationId": "properties/v2/detail",
+        "parameters": [
+          {
+            "name": "listingId",
+            "in": "query",
+            "required": true,
+            "description": "The value of listingId field returned in .../properties/v2/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "64576476",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/get-broadband": {
+      "get": {
+        "summary": "properties/get-broadband (Deprecated)",
+        "description": "Get broadband information",
+        "operationId": "properties/get_broadband_(deprecated)",
+        "parameters": [
+          {
+            "name": "listing_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of listing_id field returned in .../properties/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "56354192",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/get-running-costs": {
+      "get": {
+        "summary": "properties/get-running-costs (Deprecated)",
+        "description": "Get running costs",
+        "operationId": "properties/get_running_costs_(deprecated)",
+        "parameters": [
+          {
+            "name": "listing_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of listing_id field returned in .../properties/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "56354192",
+              "enum": null
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "One of the following residential|commercial",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "section",
+            "in": "query",
+            "required": false,
+            "description": "One of the following for-sale|to-rent",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/list": {
+      "get": {
+        "summary": "properties/list (Deprecated)",
+        "description": "List properties for sale or rent with options and filters",
+        "operationId": "properties/list_(deprecated)",
+        "parameters": [
+          {
+            "name": "area",
+            "in": "query",
+            "required": true,
+            "description": "The value of suggestions/value json object returned in .../auto-complete endpoint with listings as search_type. You must use EXACTLY the value returned by the endpoint. *'listing_id' OR 'area' parameter must be provided to get this endpoint working.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "The value of suggestions/identifier json object returned in .../auto-complete endpoint with listings as search_type. You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "listing_id",
+            "in": "query",
+            "required": false,
+            "description": "The value of listing_id field returned right in this endpoint. *'listing_id' OR 'area' parameter must be provided to get this endpoint working.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "One of the following residential|commercial",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "created_since",
+            "in": "query",
+            "required": false,
+            "description": "The date time from which properties added. The format must be yyyy-MM-dd HH:mm:ss, Ex : 2020-09-16 15:00:00",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "furnished",
+            "in": "query",
+            "required": false,
+            "description": "One of the following furnished|part_furnished|unfurnished",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "include_featured_properties",
+            "in": "query",
+            "required": false,
+            "description": "One of the following 1 | 0",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "include_rented",
+            "in": "query",
+            "required": false,
+            "description": "One of the following 1 | 0",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "include_retirement_homes",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "include_shared_accommodation",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "include_shared_ownership",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "include_sold",
+            "in": "query",
+            "required": false,
+            "description": "One of the following 1 | 0",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "keywords",
+            "in": "query",
+            "required": false,
+            "description": "Any word or term, ex : garden,wooden floors",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "listing_status",
+            "in": "query",
+            "required": false,
+            "description": "One of the following sale | rent",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "maximum_beds",
+            "in": "query",
+            "required": false,
+            "description": "Max number of bed rooms (1 - 10)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "minimum_beds",
+            "in": "query",
+            "required": false,
+            "description": "Min number of bed rooms (1 - 10)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "maximum_price",
+            "in": "query",
+            "required": false,
+            "description": "Maximum sale or rent price",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "minimum_price",
+            "in": "query",
+            "required": false,
+            "description": "Minimum sale or rent price",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "description": "One of the following age|price|price_change|view_count",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "ordering",
+            "in": "query",
+            "required": false,
+            "description": "One of the following ascending|descending",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "required": false,
+            "description": "The page index for paging purpose",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "description": "The number of items per response (max 40)",
+            "schema": {
+              "type": "string",
+              "default": "40",
+              "enum": null
+            }
+          },
+          {
+            "name": "property_type",
+            "in": "query",
+            "required": false,
+            "description": "One of the following and separated by comma for multiple values : flats|farms_land|terraced|semi_detached|detached|bungalow|park_home|offices|retail|industrial|hospitality|land",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "required": false,
+            "description": "The radius (miles) to look for properties (1 - 40)",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "pets_allowed",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "price_frequency",
+            "in": "query",
+            "required": false,
+            "description": "One of the following per_month|per_year",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "step_back_used",
+            "in": "query",
+            "required": false,
+            "description": "One of the following 1 | 0",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "bills_included",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "floor_area_max",
+            "in": "query",
+            "required": false,
+            "description": "Maximum floor area, only use with commercial category.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "floor_area_min",
+            "in": "query",
+            "required": false,
+            "description": "Minimum floor area, only use with commercial category.",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "floor_area_units",
+            "in": "query",
+            "required": false,
+            "description": "One of the following sq_feet|sq_metres",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "new_homes",
+            "in": "query",
+            "required": false,
+            "description": "One of the following yes | no",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/properties/get-area-stats": {
+      "get": {
+        "summary": "properties/get-area-stats (Deprecated)",
+        "description": "Get area stats",
+        "operationId": "properties/get_area_stats_(deprecated)",
+        "parameters": [
+          {
+            "name": "listing_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of listing_id field returned in .../properties/list endpoint",
+            "schema": {
+              "type": "string",
+              "default": "56354192",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/auto-complete": {
+      "get": {
+        "summary": "v2/auto-complete",
+        "description": "Get auto complete suggestion by term or phrase",
+        "operationId": "v2/auto_complete",
+        "parameters": [
+          {
+            "name": "locationPrefix",
+            "in": "query",
+            "required": true,
+            "description": "Example value: greenwich",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auto-complete": {
+      "get": {
+        "summary": "auto-complete (Deprecated)",
+        "description": "Get auto complete suggestion by term or phrase",
+        "operationId": "auto_complete_(deprecated)",
+        "parameters": [
+          {
+            "name": "search_term",
+            "in": "query",
+            "required": true,
+            "description": "Example value: greenwich",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "search_type",
+            "in": "query",
+            "required": false,
+            "description": "One of the following properties|listings. Use listings value to get suggestion for .../properties/list endpoint. Use properties value to get suggestion for .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/v2/detail": {
+      "get": {
+        "summary": "house-prices/v2/detail",
+        "description": "Get property price detailed information",
+        "operationId": "house_prices/v2/detail",
+        "parameters": [
+          {
+            "name": "uprn",
+            "in": "query",
+            "required": true,
+            "description": "The value of \"uprn\" field returned in .../house-prices/v2/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "100061777799",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/v2/auto-complete": {
+      "get": {
+        "summary": "house-prices/v2/auto-complete",
+        "description": "Get suggestions by term or phrase about city, country, area,etc...",
+        "operationId": "house_prices/v2/auto_complete",
+        "parameters": [
+          {
+            "name": "addressPartial",
+            "in": "query",
+            "required": true,
+            "description": "City, district, ward, area, etc....",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/get-points-of-interest": {
+      "get": {
+        "summary": "house-prices/get-points-of-interest (Deprecated)",
+        "description": "Get nearest points of interest",
+        "operationId": "house_prices/get_points_of_interest_(deprecated)",
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "query",
+            "required": true,
+            "description": "The value of property_id field returned in .../house-prices/estimate endpoint.",
+            "schema": {
+              "type": "string",
+              "default": "27175510",
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/house-prices/estimate": {
+      "get": {
+        "summary": "house-prices/estimate (Deprecated)",
+        "description": "Returned list of estimated house prices",
+        "operationId": "house_prices/estimate_(deprecated)",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "The value of suggestions/identifier json object returned in .../auto-complete endpoint with properties as search_type. You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "required": true,
+            "description": "The value of suggestions/value json object returned in .../auto-complete endpoint with properties as search_type. You must use EXACTLY the value returned by the endpoint.",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "description": "One of the following price_paid|last_sold|address|estimated_value",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "ordering",
+            "in": "query",
+            "required": false,
+            "description": "One of the following ascending|descending",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "required": false,
+            "description": "The page index for paging purpose",
+            "schema": {
+              "type": "string",
+              "default": "1",
+              "enum": null
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "description": "The number of items per response (max 40)",
+            "schema": {
+              "type": "string",
+              "default": "40",
+              "enum": null
+            }
+          },
+          {
+            "name": "property_type",
+            "in": "query",
+            "required": false,
+            "description": "One of the following detached|flat|terraced|semi_detached",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}
